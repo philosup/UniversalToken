@@ -357,7 +357,7 @@ contract ERC20HoldableToken is ERC20Token, IERC20HoldableToken {
      */
     function burnFrom(address account, uint256 amount) public override {
         require(
-            this.spendableBalanceOf(msg.sender) >= amount,
+            this.spendableBalanceOf(account) >= amount,
             "HoldableToken: amount exceeds available balance"
         );
         super.burnFrom(account, amount);
